@@ -38,3 +38,10 @@ def analyze_battery(data: BatteryInput):
         "ambient_temp": data.ambient_temp
     }
     return process_battery_input(input_data)
+
+import os
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
